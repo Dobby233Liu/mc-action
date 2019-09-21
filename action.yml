@@ -1,0 +1,9 @@
+name: "Download DDLC Archives"
+author: 'Sayo-nika'
+description: "Download DDLC archives used for modding"
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+branding:
+  color: 'gray-dark'
+  icon: 'cloud-download'
