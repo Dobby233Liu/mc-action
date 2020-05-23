@@ -19,19 +19,6 @@ mc config host add $mc_alias $mc_endpoint $mc_hmac_key $mc_hmac_secret && \
 
 mc ls $mc_alias;
 
-echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Checking for dir if it exists"
-
-if [ -d "./mod" ]; then
-    echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Directory exists. Creating game/ subdir and copying files over."
-    mc cp "$mc_alias/$mc_bucket/$mc_filename" ./
-    mkdir -p "./mod/game"
-    unzip $mc_filename -d  mod/game
-    exit 0
-  else
-    echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Directory  does not exist. Creating dir and copying files over"
-    mkdir -p mod
-    mc cp "$mc_alias/$mc_bucket/$mc_filename" ./
-    mkdir -p "./mod/game"
-    unzip $mc_filename -d  mod/game
-    exit 0
-fi
+mc cp "$mc_alias/$mc_bucket/$mc_filename" ./
+unzip $mc_filename -d ./game
+exit 0
